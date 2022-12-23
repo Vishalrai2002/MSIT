@@ -47,16 +47,16 @@
         }
         #ans{
             background-color: #ebf8e1;
-            font-size: 6vh;
+            font-size: 40px;
             color: black;
-            border: 2px solid black;
+            /* border: 2px solid black; */
             border-radius: 8px;
             width: 80%;
             height: auto;
             white-space: pre;
         }
         .show{
-            display: block;
+            border :2px solid black;
         }
     </style>
 
@@ -76,7 +76,7 @@
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
-                    'Authorization': 'Bearer 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'
+                    'Authorization': 'Bearer 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'
                 },
                 // body: '{"model": "text-davinci-003", "prompt": " code ofLongest common subsequence solution", "temperature": 0.5, "max_tokens": 4000}',
                 body: JSON.stringify({
@@ -87,6 +87,7 @@
                 })
             }).then(response => response.json())
             .then(response => {
+                document.getElementById('ans').classList.add('show');
                 document.getElementById('ans').innerHTML = response.choices[0].text;
             });
         }
