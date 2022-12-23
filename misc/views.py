@@ -23,5 +23,8 @@ def contactUs(request):
 def doubts(request):
     return render(request, 'misc/doubt.html')
 
+def meet(request):
+    return render(request, 'misc/meet.html')
+
 
 
