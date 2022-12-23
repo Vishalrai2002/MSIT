@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>doc</title>
+    <style>
+        body{
+            margin: 0;
+            padding: 0;
+            background: linear-gradient(0.25turn, #3f87a6, #ebf8e1, #f69d3c);
+        }
+        .container{
+            height: 100vh;
+            width: 100vw;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+    
+        }
+        textarea{
+            
+            padding: 2vh;
+            font-size: 6vh;
+            width: 40vw;
+            border: 2px solid black;
+            border-radius: 10px;
+            height: 10vh;
+        }
+    
+        #btn{
+            margin: 10px;
+            height: 7vh;
+            width: 100px;
+            border: 2px solid black;
+            border-radius: 10px;
+            background-color: rgb(36, 232, 59);
+    
+        }
+        .row{
+            display: flex;
+            flex-direction: row;
+            justify-content: center;
+            align-items: center;
+        }
+        #ans{
+            background-color: #ebf8e1;
+            font-size: 6vh;
+            color: black;
+            border: 2px solid black;
+            border-radius: 8px;
+            width: auto;
+            height: auto;
+            white-space: pre;
+        }
+        .show{
+            display: block;
+        }
+    </style>
+
+</head>
+<body>
+    <div class="container">
+        <div class="row">
+            <textarea name="" id="prompt"></textarea>
+            <button id="btn" onclick="getResp()">Submit!   </button>
+        </div>
+        <h1 id="ans"></h1>
+    </div>
+    <script>
+        function getResp(){
+            var question= document.getElementById('prompt').value;
+            fetch('https://api.openai.com/v1/completions', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                    'Authorization': 'Bearer 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'
+                },
+                // body: '{"model": "text-davinci-003", "prompt": " code ofLongest common subsequence solution", "temperature": 0.5, "max_tokens": 4000}',
+                body: JSON.stringify({
+                    'model': 'text-davinci-003',
+                    'prompt': question,
+                    'temperature': 0.5,
+                    'max_tokens': 4000
+                })
+            }).then(response => response.json())
+            .then(response => {
+                document.getElementById('ans').innerHTML = response.choices[0].text;
+            });
+        }
+    </script>
+</body>
+</html>
