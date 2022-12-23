@@ -20,5 +20,8 @@ def leadercocurr(request):
 def contactUs(request): 
     return render(request, 'misc/contactUs.html')
 
+def doubts(request):
+    return render(request, 'misc/doubt.html')
+
 
 
