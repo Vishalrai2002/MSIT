@@ -14,8 +14,11 @@ def signUp(request):
 def profile(request, id):
     return render(request, 'student/studentProfile.html')
 
-# def feedbackCalculator(id):
-
-    
 def feedback(request, id):
     return render(request, 'student/studentFeedback.html')  
+    
+def assign(request):
+    return render(request, 'student/quizstart.html') 
+
+def assign1(request):
+    return render(request, 'student/studentAssign.html')   

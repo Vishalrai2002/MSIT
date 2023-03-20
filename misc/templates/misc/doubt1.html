@@ -2,20 +2,17 @@
 <html lang="en">
 
 <head>
-    <!-- curl https://api.openai.com/v1/images/generations \
-  -H 'Content-Type: application/json' \
-  -H "Authorization: Bearer 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" \
-  -d '{
-    "prompt": "mahatma gandhi with lotus on elephant",
-    "n": 1,
-    "size": "256x256",
-    "response_format": "b64_json"
-  }' -->
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>suryash</title>
+    <title>doc</title>
     <style>
+        /* * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        } */
+
         body {
             margin: 0;
             padding: 0;
@@ -40,11 +37,16 @@
             border: 2px solid black;
             border-radius: 10px;
             height: 10vh;
-            background-color: white;
         }
 
         #btn {
-            display: hidden;
+            margin: 10px;
+            height: 7vh;
+            width: 100px;
+            border: 2px solid black;
+            border-radius: 10px;
+            background-color: rgb(36, 232, 59);
+
         }
 
         .row {
@@ -52,66 +54,42 @@
             flex-direction: row;
             justify-content: center;
             align-items: center;
-            word-break: break-all;
-            overflow-wrap: break-word;
-
-
         }
 
         #ans {
-            background-color: #f8f8f5;
-            font-size: 5 vh;
-            padding: 2vh;
-            ;
+            background-color: #ebf8e1;
+            font-size: 40px;
             color: black;
-            /* padding: 2vh; */
             /* border: 2px solid black; */
             border-radius: 8px;
-            max-width: 80%;
+            width: 80%;
             height: auto;
-            white-space: pre-wrap;
-            overflow-y: scroll;
-        }
-
-        div::-webkit-scrollbar {
-            width: 0px;
-            height: 0px;
+            white-space: pre;
         }
 
         .show {
             border: 2px solid black;
-            line-break: normal;
-            overflow-wrap: break-word;
-
-
         }
     </style>
 
 </head>
 
 <body>
-
     <div class="container">
         <h1
             style="font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif; border: 2px solid black; border-radius: 10px; padding: 3vh;">
             ASK YOUR DOUBTS HERE
         </h1>
         <div class="row">
-            <textarea name="" id="prompt" placeholder="Enter your query..."></textarea>
-            <!-- <button id="btn" onclick="getResp()">Submit!</button> -->
+
+            <textarea name="" id="prompt"></textarea>
+            <button id="btn" onclick="getResp()">Submit! </button>
         </div>
         <h1 id="ans"></h1>
     </div>
     <script>
-        document.getElementById("prompt").addEventListener('keydown', function (event) {
-            if (event.keyCode == 13) {
-                event.preventDefault();
-                getResp();
-            }
-        });
         function getResp() {
             var question = document.getElementById('prompt').value;
-            // var apiKey= localStorage.getItem('apiKey');
             fetch('https://api.openai.com/v1/completions', {
                 method: 'POST',
                 headers: {
@@ -133,6 +111,5 @@
         }
     </script>
 </body>
-<!-- ApiKeyStartsHere xyzsk-DOXRUPcmPCR7g4uV36IJT3BlbkFJlVydOVM6gKXY6Zk4TYlkzyx andEndsHere-->
 
 </html>

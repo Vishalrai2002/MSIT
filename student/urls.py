@@ -6,5 +6,8 @@ urlpatterns = [
     path('signUp/', views.certificateUpload, name='certificateUpload'),
     path('profile/<str:id>/', views.certificateUpload, name='certificateUpload'),
     path('feedback/<str:id>/', views.feedback, name='feedback'),
+    path('assign/', views.assign, name='assign'),
+    path('assign/assign1/', views.assign1, name='assign1'),
+
 
 ]
