@@ -81,6 +81,7 @@
         }
 
         .social-body {
+            background-color: beige;
             padding: 15px;
         }
 
@@ -222,6 +223,7 @@
             fetch('https://script.google.com/macros/s/AKfycbxHtBLjwbY_9_INut6ebuc4K9LbjxFTcUcM0GfKPPCEMRx9-ArK1sT47P6-rOS7gVNA3w/exec?actionName=GetLinkifeedData')
                 .then(response => response.json())
                 .then(response => {
+
                     for (var i = 1; i <= Object.keys(response['sheetData']).length; i++) {
                         var node = document.querySelector('#mainDiv')
                         var objStruct = document.createElement('div')
