@@ -9,5 +9,7 @@ urlpatterns = [
     path('meet/', views.meet, name='meet'),
     path('leaderboard/cocurricular/', views.leadercocurr, name='leadercocurr'),
     path('contactUs/', views.contactUs, name='contactUs'),
+    path('addPost/', views.addPost, name='addPost'),
+
 
 ]

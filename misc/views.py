@@ -26,5 +26,8 @@ def doubts(request):
 def meet(request):
     return render(request, 'misc/meet.html')
 
+def addPost(request):
+    return render(request, 'misc/addPost.html')
+
 
 

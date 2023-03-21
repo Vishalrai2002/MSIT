@@ -16,6 +16,9 @@ def assignmentcreator(request):
 def docUploader(request):
     return render(request, 'teacher/teacherTask.html')
 
+def firstInter(request):
+    return render(request, 'teacher/classdetails.html')
+
 
 
 

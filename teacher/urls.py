@@ -6,4 +6,6 @@ urlpatterns = [
     path('signUp/', views.signUp, name='signUp'),
     path('assignmentcreator/', views.assignmentcreator, name='assignmentcreator'),
     path('docuploader/', views.docUploader, name='docUploader'),
+    path('firstInter/', views.firstInter, name='firstInter'),
+
 ]

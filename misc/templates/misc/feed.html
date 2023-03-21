@@ -9,7 +9,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>LinkyFeed</title>
     <style>
         /* body{margin-top:20px;} */
         /* Social feed */
@@ -39,7 +39,10 @@
             border: 2px solid black;
             border-radius: 10px;
             background: #fff;
-            margin-bottom: 15px;
+            margin-bottom: 15vh;
+            margin-left: 50vh;
+            width: 87%;
+            box-shadow: 10px 5px 5px black;
         }
 
         .article .social-feed-box {
@@ -193,16 +196,22 @@
 
         .upld {
             display: flex;
-            flex-direction: row;
+            flex-direction: row-reverse;
             justify-content: space-between;
             padding-left: 35vh;
             margin-top: -25vh;
             margin-bottom: 5vh;
         }
 
-        .hideIt {
-            display: none;
+        .logo {
+            margin-bottom: 1em;
         }
+
+
+
+        /* .hideIt {
+            display: none;
+        } */
     </style>
 </head>
 
@@ -212,9 +221,13 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
 
-    <div class="container">
+    <!-- <div class="container"> -->
+    <div>
         <div class="upld">
-            <button type="button" class="btn btn-warning">Upload Certificate!</button>
+            <a href="/addPost">
+                <button type="button" class="btn btn-warning" style="margin-right: 4vw;"><b>+</b> Upload
+                    Certificate!</button>
+            </a>
         </div>
 
         <div class="col-md-7" id="mainDiv">
@@ -226,6 +239,7 @@
     </div>
     </div>
     <script>
+
         dataRecv = {}
         function DateConverter(inputString) {
             //  const inputString = "13_30_20";
@@ -259,7 +273,7 @@
                         <img alt="image" src="https://bootdey.com/img/Content/avatar/avatar1.png" >
                     </a>
                     <div class="media-body">
-                        <a href="student/${response['sheetData'][i].postBy}" id="name">
+                        <a href="/student/profile/${response['sheetData'][i].postBy}" id="name">
                             ${response['sheetData'][i].postBy}
                         </a>
                         <small class="text-muted"> ${GetTime} - ${GetDate}</small>
@@ -280,7 +294,7 @@
                         node.appendChild(objStruct)
                     }
 
-                    document.querySelector('.container').classList.remove('hideIt')
+                    // document.querySelector('.container').classList.remove('hideIt')
 
                 })
         }
